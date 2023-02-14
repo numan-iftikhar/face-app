@@ -21,6 +21,7 @@
                 >Your email</label
               >
               <input
+                v-model="email"
                 type="email"
                 name="email"
                 id="email"
@@ -36,6 +37,7 @@
                 >Password</label
               >
               <input
+                v-model="password"
                 type="password"
                 name="password"
                 id="password"
@@ -45,6 +47,7 @@
               />
             </div>
             <button
+              @click.prevent="handleLoginSubmit"
               type="submit"
               class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
@@ -66,5 +69,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+
+  methods: {
+    handleLoginSubmit() {
+      console.log(this.email, this.password);
+    },
+  },
+};
 </script>
