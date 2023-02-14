@@ -1,7 +1,7 @@
 <template>
   <section class="bg-gray-50 dark:bg-gray-900 py-10">
     <div
-      class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
+      class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0"
     >
       <div
         class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
@@ -20,6 +20,7 @@
                 >Full Name</label
               >
               <input
+                v-model="fullName"
                 type="text"
                 name="full-name"
                 id="full-name"
@@ -36,6 +37,7 @@
                 >Designation</label
               >
               <input
+                v-model="designation"
                 type="text"
                 name="designation"
                 id="designation"
@@ -52,6 +54,7 @@
                 >Your email</label
               >
               <input
+                v-model="email"
                 type="email"
                 name="email"
                 id="email"
@@ -67,6 +70,7 @@
                 >Password</label
               >
               <input
+                v-model="password"
                 type="password"
                 name="password"
                 id="password"
@@ -82,6 +86,7 @@
                 >Confirm password</label
               >
               <input
+                v-model="confirmPassword"
                 type="confirm-password"
                 name="confirm-password"
                 id="confirm-password"
@@ -114,10 +119,11 @@
               </div>
             </div>
             <button
+              @click.prevent="handleSignupSubmit"
               type="submit"
               class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
             >
-              Create an account
+              Register
             </button>
             <p class="text-sm font-light text-gray-500 dark:text-gray-400">
               Already have an account?
@@ -133,3 +139,30 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      fullName: "",
+      designation: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    };
+  },
+
+  methods: {
+    handleSignupSubmit() {
+      // post api request here
+      console.log(
+        this.fullName,
+        this.designation,
+        this.email,
+        this.password,
+        this.confirmPassword
+      );
+    },
+  },
+};
+</script>

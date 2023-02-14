@@ -9,4 +9,7 @@
       Capture
     </div>
   </div>
+
+  install composer globally install postman install xampp open terminal and
+  write composer create-project laravel/laravel name
 </template>
